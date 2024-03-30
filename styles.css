@@ -1,0 +1,64 @@
+body {
+    background-color: rgb(38,32,70)
+}
+/*Grid*/
+#Grid {
+    display: grid;
+    grid-template-areas:
+                        "i i i i g g g"
+                        "i i i i g g g"
+                        "i i i i g g g"
+                        "i i i i b b b";
+    width:100vw;
+    height:100vh;
+}
+.InnerBox {
+    background-color: rgb(106,86,213);
+    /*border*/
+    border-style: solid;
+    border-width: 0px;
+    box-shadow: 0px 0px 2px 2px #cdd1f8;
+    /*margin-padding*/
+    padding: 10px;
+    margin: 10px;
+    /*text*/
+    color: #EDE7B1;
+}
+.InnerBox header {
+
+}
+#Inputs {
+    grid-area: i;
+}
+#Graph {
+    grid-area: g;
+}
+#Generate {
+    grid-area: b;
+}
+#Generate button {
+    width: 80px;
+    height: 35px;
+}
+
+
+/*Toggles Inputs Hide/Unhide*/
+.hiddenToggle {
+    display: none;
+}
+.Collapsable header {
+    background-color: blue;
+    /*padding-margin*/
+    padding: 10px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+.Collapsable main {
+    display: None;
+    /**/
+    background-color: green;
+}
+
+.hiddenToggle:checked + header + main {
+    display:block;
+}

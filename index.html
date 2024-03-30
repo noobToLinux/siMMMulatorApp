@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento HTML con Estilos</title>
+    <!-- Enlazar un archivo de hojas de estilo externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--
+    El HTML constará con 3 cajas principales, una primera con los inputs de
+    los datos del siMMMulador, una segunda caja con la gráfica de los
+    parámetros que se estén generando y una tercera con los botones para
+    generar el JSON
+    -->
+<main id="Grid"> <!--Section to apply grid-->
+    <section class="InnerBox" id="Inputs"> <!--Inputs-->
+        <!--
+        La sección de los inputs constará de las siguientes cajas
+        * Una primera con las variables a definir.
+        * Una segunda indicando el tipo del adStock a utilizar para todas estas
+        variables
+        * Una tercera indicando los parámetros de adStock de cada una de las
+        variables.
+        * Una cuarta indicando los parámetros de saturacion de cada una de las
+        variables
+        * Una quinta indicando los parámetros de ciclicidad
+        -->
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleVariablesNames"type="checkbox">
+            <header>
+                <label for="toggleVariablesNames">Nombres de las variables</label>
+            </header>
+            <main id="VariablesNames">
+                <input type="text" class="inputVariable" placeholder="Variable name">
+            </main>
+        </div>
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleAdStockType" type="checkbox">
+            <header>
+                <label for="toggleAdStockType">Tipo de adstock</label>
+            </header>
+            <main>
+                <input type="text" class="inputAdStock" placeholder="Geometric">
+            </main>
+        </div>
+    </section>
+    <section class="InnerBox" id="Graph"> <!--Gráfica-->
+        <header>
+            <h2>Gráfica de <span id="NombreGrafica">No seleccionado</span></h2>
+        </header>
+    </section>
+    <section class="InnerBox" id="Generate"> <!--BotonesGenerar-->
+        <button>Generar JSON</button>
+    </section>
+</main>
+    
+</body>
+</html>
