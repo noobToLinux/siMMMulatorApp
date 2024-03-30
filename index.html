@@ -27,22 +27,91 @@
         variables
         * Una quinta indicando los parámetros de ciclicidad
         -->
+        <!--*** *** *** Nombres variables *** *** ***-->
         <div class="Collapsable">
             <input class="hiddenToggle" id="toggleVariablesNames"type="checkbox">
             <header>
                 <label for="toggleVariablesNames">Nombres de las variables</label>
             </header>
             <main id="VariablesNames">
-                <input type="text" class="inputVariable" placeholder="Variable name">
+                <input type="text" placeholder="Variable name">
             </main>
         </div>
+        <!--*** *** *** Rango Fechas *** *** ***-->
         <div class="Collapsable">
-            <input class="hiddenToggle" id="toggleAdStockType" type="checkbox">
+            <input class="hiddenToggle" id="toggleDateRange" type="checkbox">
             <header>
-                <label for="toggleAdStockType">Tipo de adstock</label>
+                <label for="toggleDateRange">Rango de fechas</label>
             </header>
             <main>
-                <input type="text" class="inputAdStock" placeholder="Geometric">
+                <input type="text" placeholder="FechaInicio">
+                <input type="text" placeholder="FechaFin">
+                <input type="text" placeholder="Date frequency">
+            </main>
+        </div>
+        <!--*** *** *** Rangos Variables *** *** ***-->
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleVariablesRanges" type="checkbox">
+            <header>
+                <label for="toggleVariablesRanges">Rangos de variables</label>
+            </header>
+            <main>
+                <label for="selectRangosVariables" class="labelSelectVariable">Selecciona la variable</label>
+                <select name="selectRangosVariables" class="selectVariable" id="selectRangosVariables">
+                    <option value="opcion1">Opcion 1</option>
+                </select>
+                <input type="text" placeholder="valor minimo de gasto">
+                <input type="text" placeholder="valor maximo de gasto">
+            </main>
+        </div>
+        <!--*** *** *** adStock *** *** ***-->
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleAdStockParams" type="checkbox">
+            <header>
+                <label for="toggleAdStockParams">Adstock</label>
+            </header>
+            <main>
+                <label for="">Tipo de adstock</label>
+                <input type="text" placeholder="Geometric">
+                <label for="selectAdStockParams" class="labelSelectVariable">Selecciona la variable</label>
+                <select name="selectAdStockParams" class="selectVariable" id="selectAdStockParams">
+                    <option value="opcion1">Opcion 1</option>
+                </select>
+                <input type="text" placeholder="theta">
+                <input type="text" placeholder="shape">
+                <input type="text" placeholder="scale">
+            </main>
+        </div>
+        <!--*** *** *** Saturacion *** *** ***-->
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleSaturationParams" type="checkbox">
+            <header>
+                <label for="toggleSaturationParams">Saturacion</label>
+            </header>
+            <main>
+                <label for="selectSaturationParams" class="labelSelectVariable">Selecciona la variable</label>
+                <select name="selectSaturationParams" class="selectVariable" id="selectSaturationParams">
+                    <option value="opcion1">Opcion 1</option>
+                </select>
+                <input type="text" placeholder="alpha">
+                <input type="text" placeholder="gamma">
+            </main>
+        </div>
+        <!--*** *** *** Datos de campaña *** *** ***-->
+        <div class="Collapsable">
+            <input class="hiddenToggle" id="toggleFrequencyParams" type="checkbox">
+            <header>
+                <label for="toggleFrequencyParams">Frecuencia de campaña</label>
+            </header>
+            <main>
+                <label for="selectFrequencyParams" class="labelSelectVariable">Selecciona la variable</label>
+                <select name="selectFrequencyParams" class="selectVariable" id="selectFrequencyParams">
+                    <option value="opcion1">Opcion 1</option>
+                </select>
+                <input type="text" placeholder="startTime">
+                <input type="text" placeholder="uphill duration">
+                <input type="text" placeholder="downhill duration">
+                <input type="text" placeholder="baseValue">
             </main>
         </div>
     </section>
@@ -52,6 +121,8 @@
         </header>
     </section>
     <section class="InnerBox" id="Generate"> <!--BotonesGenerar-->
+        <input type="text" placeholder="random seed">
+        <input type="text" placeholder="path to CSV">
         <button>Generar JSON</button>
     </section>
 </main>
