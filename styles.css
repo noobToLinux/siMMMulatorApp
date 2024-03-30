@@ -1,5 +1,6 @@
+/*UIColors palette HSI(117,85,46)*/
 body {
-    background-color: rgb(38,32,70)
+    background-color: #e9ffe6
 }
 /*Grid*/
 #Grid {
@@ -13,26 +14,33 @@ body {
     height:100vh;
 }
 .InnerBox {
-    background-color: rgb(106,86,213);
+    background-color: #125513;
     /*border*/
     border-style: solid;
     border-width: 0px;
-    box-shadow: 0px 0px 2px 2px #cdd1f8;
+    box-shadow: 0px 0px 2px 2px #042f06;
     /*margin-padding*/
     padding: 10px;
     margin: 10px;
     /*text*/
-    color: #EDE7B1;
+    color: #125513;
+    /*edges*/
+    border-radius: 15px;
 }
-.InnerBox header {
-    background-color: red;
-    padding-left: 10px;
+header {
+    border-radius: 5px;
 }
 #Inputs {
     grid-area: i;
 }
 #Graph {
     grid-area: g;
+    background-color: #d0fdca;
+    color: #d0fdca;
+}
+.InnerBox header {
+    background-color: #125513;
+    padding-left: 10px;
 }
 #Generate {
     grid-area: b;
@@ -48,18 +56,43 @@ body {
     display: none;
 }
 .Collapsable header {
-    background-color: blue;
+    background-color: #a5fb9b;
     /*padding-margin*/
     padding: 10px;
-    margin-top: 2px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 1px;
 }
 .Collapsable main {
     display: None;
     /**/
-    background-color: green;
+    background-color: #a5fb9b;
+    border-radius: 5px;
+    padding: 1px;
 }
 
 .hiddenToggle:checked + header + main {
     display:block;
+}
+
+/*Collapsables content*/
+input {
+    border-radius: 3px;
+}
+/*Variables list*/
+.variablesList {
+    display:grid;
+    grid-template-columns: 1fr;
+}
+.VariableName {
+    border-style: solid;
+    border-color: #125513;
+    border-radius: 5px;
+    padding-left: 5px;
+    border-width: 2px;
+}
+#inputVarNames {
+    display: block;
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }

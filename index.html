@@ -6,6 +6,8 @@
     <title>Documento HTML con Estilos</title>
     <!-- Enlazar un archivo de hojas de estilo externo -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Enlazar un archivo de js externo -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!--
@@ -34,7 +36,13 @@
                 <label for="toggleVariablesNames">Nombres de las variables</label>
             </header>
             <main id="VariablesNames">
-                <input type="text" placeholder="Variable name">
+                <div id="inputVarNames">
+                    <input type="text" placeholder="Variable name">
+                </div>
+                <div id="variablesList">
+                    <div class="VariableName"><span>Variable 1</span></div>
+                    <div class="VariableName"><span>Variable 2</span></div>
+                </div>
             </main>
         </div>
         <!--*** *** *** Rango Fechas *** *** ***-->
@@ -126,6 +134,6 @@
         <button>Generar JSON</button>
     </section>
 </main>
-    
+
 </body>
 </html>
