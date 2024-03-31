@@ -1,6 +1,14 @@
 /*UIColors palette HSI(117,85,46)*/
+/*Color variables*/
+:root {
+    --background-global: #e9ffe6;
+    --background-vars: #125513;
+    --backgroung-graph: #d0fdca;
+    --shadow: #042f06;
+    --background-collapsable: #a5fb9b;
+}
 body {
-    background-color: #e9ffe6
+    background-color: var(--background-global);
 }
 /*Grid*/
 #Grid {
@@ -14,16 +22,16 @@ body {
     height:100vh;
 }
 .InnerBox {
-    background-color: #125513;
+    background-color: var(--background-vars);
     /*border*/
     border-style: solid;
     border-width: 0px;
-    box-shadow: 0px 0px 2px 2px #042f06;
+    box-shadow: 0px 0px 2px 2px var(--shadow);
     /*margin-padding*/
     padding: 10px;
     margin: 10px;
     /*text*/
-    color: #125513;
+    color: var(--background-vars);
     /*edges*/
     border-radius: 15px;
 }
@@ -35,11 +43,11 @@ header {
 }
 #Graph {
     grid-area: g;
-    background-color: #d0fdca;
-    color: #d0fdca;
+    background-color: var(--background-graph);
+    color: #d0fdca; /*No funciona con el var, no se porque*/
 }
 .InnerBox header {
-    background-color: #125513;
+    background-color: var(--background-vars);
     padding-left: 10px;
 }
 #Generate {
@@ -56,7 +64,7 @@ header {
     display: none;
 }
 .Collapsable header {
-    background-color: #a5fb9b;
+    background-color: var(--background-collapsable);
     /*padding-margin*/
     padding: 10px;
     margin-top: 5px;
@@ -65,7 +73,7 @@ header {
 .Collapsable main {
     display: None;
     /**/
-    background-color: #a5fb9b;
+    background-color: var(--background-collapsable);
     border-radius: 5px;
     padding: 1px;
 }
@@ -85,7 +93,7 @@ input {
 }
 .VariableName {
     border-style: solid;
-    border-color: #125513;
+    border-color: var(--background-vars);
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -108,7 +116,7 @@ input {
     /**/
     font-size: 10px;
 }
-#inputVarNames {
+#divInputVarNames {
     display: block;
     padding-left: 5px;
     padding-top: 2px;
