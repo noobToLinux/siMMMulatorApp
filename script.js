@@ -5,12 +5,6 @@ function removeRow(rowName){
     document.getElementById(id).remove();
     return undefined;
 }
-inputVariableName = document.getElementById('inputVarNames');
-inputVariableName.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        addRow();
-    }
-})
 
 function addRow(){
     variableName = inputVariableName.value;
@@ -23,3 +17,24 @@ function addRow(){
     document.getElementById('variablesList').appendChild(row);
     inputVariableName.value = '';
 }
+
+inputVariableName = document.getElementById('inputVarNames');
+inputVariableName.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        addRow();
+    }
+})
+
+function listOfVariables(){
+    let rows = document.getElementById('variablesList').childNodes;
+    let listOfVars = [];
+    for (let r of rows){
+        if (r.id){
+            let name = r.id.split('_')[1];
+            listOfVars.push(name);
+        }
+    }
+    return listOfVars;
+}
+
+/*Variable params*/

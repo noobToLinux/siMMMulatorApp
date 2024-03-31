@@ -51,9 +51,28 @@
                 <label for="toggleDateRange">Rango de fechas</label>
             </header>
             <main>
-                <input type="text" placeholder="FechaInicio">
-                <input type="text" placeholder="FechaFin">
-                <input type="text" placeholder="Date frequency">
+                <div class="keyValuePairs divInputDateRange">
+                    <div class="keyValue rowInputRange">
+                        <span>Fecha de Inicio:</span>
+                        <input type="date">
+                    </div>
+                    <div class="keyValue rowInputRange">
+                        <span>Fecha de Fin:</span>
+                        <input type="date">
+                    </div>
+                </div>
+                <div class="divInputDateFreq">
+                    <div><span>Frencuencia:</span></div>
+                    <!---->
+                    <input type="radio" name="Freq" value="daily" id="radioDaily">
+                    <label for="radioDaily">Diario</label>
+                    <!---->
+                    <input type="radio" checked name="Freq" value="weekly" id="radioWeekly">
+                    <label for="radioWeekly">Semanal</label>
+                    <!---->
+                    <input type="radio" name="Freq" value="monthly" id="radioMonthly">
+                    <label for="radioMonthly">Mensual</label>
+                </div>
             </main>
         </div>
         <!--*** *** *** Rangos Variables *** *** ***-->
@@ -63,12 +82,19 @@
                 <label for="toggleVariablesRanges">Rangos de variables</label>
             </header>
             <main>
-                <label for="selectRangosVariables" class="labelSelectVariable">Selecciona la variable</label>
-                <select name="selectRangosVariables" class="selectVariable" id="selectRangosVariables">
-                    <option value="opcion1">Opcion 1</option>
-                </select>
-                <input type="text" placeholder="valor minimo de gasto">
-                <input type="text" placeholder="valor maximo de gasto">
+                <div class="variableParam divInputVariableRange" id="varRange_V1">
+                    <div><span class="variableTitle">Variable 1</span></div>
+                    <div class="keyValuePairs">
+                        <div class="keyValue">
+                            <span>Gasto mínimo:</span>
+                            <input type="number">
+                        </div>
+                        <div class="keyValue">
+                            <span>Gasto máximo:</span>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
         <!--*** *** *** adStock *** *** ***-->

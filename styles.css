@@ -18,8 +18,8 @@ body {
                         "i i i i g g g"
                         "i i i i g g g"
                         "i i i i b b b";
-    width:100vw;
-    height:100vh;
+    width:95vw;
+    height:95vh;
 }
 .InnerBox {
     background-color: var(--background-vars);
@@ -43,7 +43,7 @@ header {
 }
 #Graph {
     grid-area: g;
-    background-color: var(--background-graph);
+    background-color: #d0fdca;
     color: #d0fdca; /*No funciona con el var, no se porque*/
 }
 .InnerBox header {
@@ -75,7 +75,10 @@ header {
     /**/
     background-color: var(--background-collapsable);
     border-radius: 5px;
-    padding: 1px;
+    padding-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 1px;
 }
 
 .hiddenToggle:checked + header + main {
@@ -121,4 +124,24 @@ input {
     padding-left: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
+}
+/*clave valor*/
+.keyValuePairs {
+    display: flex;
+    flex-direction: column;
+}
+.keyValue {
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+}
+
+.keyValue span {
+    min-width: 30%;
+}
+
+/*parámetros de variables*/
+
+.variableTitle {
+    font-size: large;
 }
