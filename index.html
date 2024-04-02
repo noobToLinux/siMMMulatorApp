@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="divInputDateFreq">
-                    <div><span>Frencuencia:</span></div>
+                    <div><span class="radioSpan">Frencuencia:</span></div>
                     <!---->
                     <input type="radio" name="Freq" value="daily" id="radioDaily">
                     <label for="radioDaily">Diario</label>
@@ -104,15 +104,43 @@
                 <label for="toggleAdStockParams">Adstock</label>
             </header>
             <main>
-                <label for="">Tipo de adstock</label>
-                <input type="text" placeholder="Geometric">
-                <label for="selectAdStockParams" class="labelSelectVariable">Selecciona la variable</label>
-                <select name="selectAdStockParams" class="selectVariable" id="selectAdStockParams">
-                    <option value="opcion1">Opcion 1</option>
-                </select>
-                <input type="text" placeholder="theta">
-                <input type="text" placeholder="shape">
-                <input type="text" placeholder="scale">
+                <!--<div id="divInputAdStockType">-->
+                <div><span class="radioSpan">Tipo de adstock:</span></div>
+                <!---->
+                <input type="radio" checked name="radioAdStock" value="geometric" id="radioGeometric">
+                <label for="radioGeometric">Geometrico</label>
+                <!---->
+                <input type="radio" name="radioAdStock" value="weibull" id="radioWeibull">
+                <label for="radioWeibull">Weibull</label>
+                <!---->
+                <div id="divInputWeibullType">
+                    <div><span class="radioSpan">Weibull Distribution Function:</span></div>
+                    <!---->
+                    <input type="radio" checked name="radioDF" value="pdf" id="radioPDF">
+                    <label for="radioPDF">Probability (PDF)</label>
+                    <!---->
+                    <input type="radio" name="radioDF" value="cdf" id="radioCDF">
+                    <label for="radioCDF">Cumulative (CDF)</label>
+                    <!---->
+                </div>
+                <!--</div>-->
+                <div class="variableParam divInputAdStockParam" id="varAd_V1">
+                    <div><span class="variableTitle">Variable 1</span></div>
+                    <div class="keyValuePairs">
+                        <div class="keyValue geometricParam">
+                            <span>Theta:</span>
+                            <input type="number" min="0" max="1" step="0.01" class="thetaParam">
+                        </div>
+                        <div class="keyValue weibullParam">
+                            <span>Shape:</span>
+                            <input type="number" class="shapeParam">
+                        </div>
+                        <div class="keyValue weibullParam">
+                            <span>Scale:</span>
+                            <input type="number" min="0" max="1" step="0.01" class="scaleParam">
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
         <!--*** *** *** Saturacion *** *** ***-->
@@ -122,12 +150,19 @@
                 <label for="toggleSaturationParams">Saturacion</label>
             </header>
             <main>
-                <label for="selectSaturationParams" class="labelSelectVariable">Selecciona la variable</label>
-                <select name="selectSaturationParams" class="selectVariable" id="selectSaturationParams">
-                    <option value="opcion1">Opcion 1</option>
-                </select>
-                <input type="text" placeholder="alpha">
-                <input type="text" placeholder="gamma">
+                <div class="variableParam divInputSatParam" id="varAd_V1">
+                    <div><span class="variableTitle">Variable 1</span></div>
+                    <div class="keyValuePairs">
+                        <div class="keyValue satParam">
+                            <span>Alpha:</span>
+                            <input type="number" class="alphaParam">
+                        </div>
+                        <div class="keyValue gammaParam">
+                            <span>Gamma:</span>
+                            <input type="number" min="0" max="1" step="0.01" class="scaleParam">
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
         <!--*** *** *** Datos de campaña *** *** ***-->

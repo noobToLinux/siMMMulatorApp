@@ -144,4 +144,47 @@ input {
 
 .variableTitle {
     font-size: large;
+    font-weight: bold;
 }
+
+.radioSpan {
+    font-size:medium;
+    font-weight: bold;
+}
+
+/*Todos los botones radio*/
+input[type="radio"]:checked+label{
+    font-weight:bold;
+}
+
+/*AdStock*/
+
+#divInputWeibullType {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*hide/show weibull or geometric*/
+#divInputWeibullType {
+    display:None;
+}
+
+#radioWeibull:checked ~ #divInputWeibullType {
+    display:block;
+}
+
+#radioWeibull:checked ~ .divInputAdStockParam .keyValuePairs .geometricParam{
+    display:none;
+}
+.weibullParam {
+    display:none;
+}
+#radioWeibull:checked ~ .divInputAdStockParam .keyValuePairs .weibullParam{
+    display:block;
+}
+
+input[type="number"]:out-of-range {
+    border-color: red;
+    box-shadow: 0px 0px 3px 3px red;
+}
+
