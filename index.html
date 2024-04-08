@@ -81,20 +81,22 @@
             <header>
                 <label for="toggleVariablesRanges">Rangos de variables</label>
             </header>
-            <main>
+            <main id="varRanges">
+                <!--
                 <div class="variableParam divInputVariableRange" id="varRange_V1">
                     <div><span class="variableTitle">Variable 1</span></div>
                     <div class="keyValuePairs">
                         <div class="keyValue">
                             <span>Gasto mínimo:</span>
-                            <input type="number">
+                            <input type="number" min="0">
                         </div>
                         <div class="keyValue">
                             <span>Gasto máximo:</span>
-                            <input type="number">
+                            <input type="number" min="0">
                         </div>
                     </div>
                 </div>
+                -->
             </main>
         </div>
         <!--*** *** *** adStock *** *** ***-->
@@ -103,7 +105,7 @@
             <header>
                 <label for="toggleAdStockParams">Adstock</label>
             </header>
-            <main>
+            <main id="adStock">
                 <!--<div id="divInputAdStockType">-->
                 <div><span class="radioSpan">Tipo de adstock:</span></div>
                 <!---->
@@ -123,7 +125,7 @@
                     <label for="radioCDF">Cumulative (CDF)</label>
                     <!---->
                 </div>
-                <!--</div>-->
+                <!--</div>
                 <div class="variableParam divInputAdStockParam" id="varAd_V1">
                     <div><span class="variableTitle">Variable 1</span></div>
                     <div class="keyValuePairs">
@@ -141,6 +143,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </main>
         </div>
         <!--*** *** *** Saturacion *** *** ***-->
@@ -149,20 +152,22 @@
             <header>
                 <label for="toggleSaturationParams">Saturacion</label>
             </header>
-            <main>
-                <div class="variableParam divInputSatParam" id="varAd_V1">
+            <main id="saturation">
+                <!--
+                <div class="variableParam divInputSatParam" id="varSat_V1">
                     <div><span class="variableTitle">Variable 1</span></div>
                     <div class="keyValuePairs">
                         <div class="keyValue satParam">
                             <span>Alpha:</span>
                             <input type="number" class="alphaParam">
                         </div>
-                        <div class="keyValue gammaParam">
+                        <div class="keyValue satParam">
                             <span>Gamma:</span>
-                            <input type="number" min="0" max="1" step="0.01" class="scaleParam">
+                            <input type="number" min="0" max="1" step="0.01" class="gammaParam">
                         </div>
                     </div>
                 </div>
+                -->
             </main>
         </div>
         <!--*** *** *** Datos de campaña *** *** ***-->
@@ -171,15 +176,22 @@
             <header>
                 <label for="toggleFrequencyParams">Frecuencia de campaña</label>
             </header>
-            <main>
-                <label for="selectFrequencyParams" class="labelSelectVariable">Selecciona la variable</label>
-                <select name="selectFrequencyParams" class="selectVariable" id="selectFrequencyParams">
-                    <option value="opcion1">Opcion 1</option>
-                </select>
-                <input type="text" placeholder="startTime">
-                <input type="text" placeholder="uphill duration">
-                <input type="text" placeholder="downhill duration">
-                <input type="text" placeholder="baseValue">
+            <main id="frequency">
+                <!--
+                <div class="variableParam divInputFreqParam" id="varFre_V1">
+                    <div><span class="variableTitle">Variable 1</span></div>
+                    <div class="keyValuePairs">
+                        <div class="keyValue campParam">
+                            <span>Frecuencia:</span>
+                            <input type="number" class="freqParam">
+                        </div>
+                        <div class="keyValue campParam">
+                            <span>Desfase:</span>
+                            <input type="number" min="0" max="6.283" step="0.01" class="PhiParam">
+                        </div>
+                    </div>
+                </div>
+                -->
             </main>
         </div>
     </section>
