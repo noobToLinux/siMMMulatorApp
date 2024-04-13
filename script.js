@@ -130,6 +130,7 @@ function addVarAdStock(vName){
     shapeSpan.innerHTML = 'Shape:';
     shapeInput = document.createElement('input');
     shapeInput.type = 'number';
+    shapeInput.min = "0.0001"
     shapeInput.classList.add('shapeParam');
 
     scaleSpan = document.createElement('span');

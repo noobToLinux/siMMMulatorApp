@@ -45,6 +45,8 @@ header {
     grid-area: g;
     background-color: #d0fdca;
     color: #d0fdca; /*No funciona con el var, no se porque*/
+    display: flex;
+    flex-direction: column;
 }
 .InnerBox header {
     background-color: var(--background-vars);
@@ -52,10 +54,13 @@ header {
 }
 #Generate {
     grid-area: b;
+    color: #d0fdca;
 }
 #Generate button {
     width: 80px;
     height: 35px;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
 
@@ -137,7 +142,11 @@ input {
 }
 
 .keyValue span {
-    min-width: 30%;
+    min-width: 40%;
+}
+
+.keyValue input {
+    min-width: 40%;
 }
 
 /*parámetros de variables*/
@@ -180,11 +189,23 @@ input[type="radio"]:checked+label{
     display:none;
 }
 #radioWeibull:checked ~ .divInputAdStockParam .keyValuePairs .weibullParam{
-    display:block;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
 }
 
 input[type="number"]:out-of-range {
     border-color: red;
     box-shadow: 0px 0px 3px 3px red;
+}
+
+/*Gráfica*/
+
+canvas {
+    width: 50vh;
+    height: 50vh;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
 }
 
