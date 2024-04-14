@@ -125,6 +125,10 @@ function addVarAdStock(vName){
     thetaInput.max = '1';
     thetaInput.step = '0.01';
     thetaInput.classList.add('thetaParam');
+    /**/
+    thetaInput.addEventListener('input',function (){
+        plotGeometric(thetaInput.value);
+    });
 
     shapeSpan = document.createElement('span');
     shapeSpan.innerHTML = 'Shape:';

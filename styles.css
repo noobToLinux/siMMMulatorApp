@@ -201,10 +201,10 @@ input[type="number"]:out-of-range {
 
 /*Gráfica*/
 
-canvas {
+#canvasContainer {
     width: 50vh;
     height: 50vh;
-    background-color: white;
+    /*background-color: white;*/
     margin: auto;
     border-radius: 5px;
 }
