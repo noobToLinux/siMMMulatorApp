@@ -60,6 +60,7 @@ function genKVP(){
     return divKVP;
 }
 
+
 function addVarRanges(vName){
     glob = genVariableParamsBase(vName);
     kVP = genKVP();
@@ -101,6 +102,7 @@ function addVarRanges(vName){
     return undefined;
 }
 
+
 function addVarAdStock(vName){
     glob = genVariableParamsBase(vName);
     kVP = genKVP();
@@ -126,9 +128,16 @@ function addVarAdStock(vName){
     thetaInput.step = '0.01';
     thetaInput.classList.add('thetaParam');
     /**/
-    thetaInput.addEventListener('input',function (){
-        plotGeometric(thetaInput.value);
+    function thetaSteps(){
+        plotGeometric(thetaInput.value,vName);
+    }
+    thetaInput.addEventListener('click',function (){
+        thetaSteps();
     });
+    thetaInput.addEventListener('input',function (){
+        thetaSteps();
+    });
+    /*Ponemos los dos para que lo haga tanto en el click como al escribir*/
 
     shapeSpan = document.createElement('span');
     shapeSpan.innerHTML = 'Shape:';
@@ -136,7 +145,7 @@ function addVarAdStock(vName){
     shapeInput.type = 'number';
     shapeInput.min = "0.0001"
     shapeInput.classList.add('shapeParam');
-
+    
     scaleSpan = document.createElement('span');
     scaleSpan.innerHTML = 'Scale:';
     scaleInput = document.createElement('input');
@@ -145,6 +154,38 @@ function addVarAdStock(vName){
     scaleInput.max = '1';
     scaleInput.step = '0.01';
     scaleInput.classList.add('scaleParam');
+
+    function shapeSteps(){
+        let weibullType = document.querySelector('input[name=radioDF]:checked').value;
+        let scaleValue = scaleInput.value;
+        let shapeValue = shapeInput.value;
+        if (scaleValue){
+            plotWeibull(shapeValue,scaleValue,weibullType,vName)
+        }
+    }
+
+    shapeInput.addEventListener('click',function(){
+        shapeSteps();
+    })
+    shapeInput.addEventListener('input',function(){
+        shapeSteps();
+    })
+
+    function scaleSteps(){
+        weibullType = document.querySelector('input[name=radioDF]:checked').value;
+        scaleValue = scaleInput.value;
+        shapeValue = shapeInput.value;
+        if (shapeValue){
+            plotWeibull(shapeValue,scaleValue,weibullType,vName)
+        }
+    }
+
+    scaleInput.addEventListener('click',function(){
+        scaleSteps();
+    })
+    scaleInput.addEventListener('input',function(){
+        scaleSteps();
+    })
 
     kvT.appendChild(thetaSpan);
     kvT.appendChild(thetaInput);
@@ -164,6 +205,12 @@ function addVarAdStock(vName){
     document.getElementById('adStock').appendChild(glob);
 
 }
+
+/*
+Añadimos a los botones del tipo de adStock que se ejecuten las funciones
+y del tipo de weibull que se ejecuten las gráficas de nuevo
+*/
+
 
 function addSaturation(vName){
     glob = genVariableParamsBase(vName);

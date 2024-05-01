@@ -10,10 +10,15 @@ function fSat(alpha,gamma){
 }
 
 function fGeoAdStock(theta){
+    function decay(t){
+        return 1/e**(theta*t)
+    }
+    /*
     function f(actual,previous){
         return actual + theta*previous;
     }
-    return f;
+    */
+    return decay;
 }
 
 function fWeibullAdStock(shape,scale,type='pdf'){
@@ -28,10 +33,12 @@ function fWeibullAdStock(shape,scale,type='pdf'){
         'pdf':pdf,
         'cdf':cdf
     }
+    /*
     function f(actual,previous,t){
         return actual + funMap[type](t)*previous;
     }
-    return f;
+    */
+    return funMap[type];
 }
 
 function getChart(){
@@ -40,7 +47,13 @@ function getChart(){
 
 function genXRange(min,max,step){
     let xValues = [];
-    for (let x=min; x<=max; x+=step){xValues.push(x);}
+    for (let x=min; x<=max; x+=step){xValues.push(Math.round(x*100)/100);}
+    return xValues;
+}
+
+function genRevXRange(max,min,step){
+    let xValues = [];
+    for (let x=max; x>=min; x+=step){xValues.push(Math.round(x*100)/100);}
     return xValues;
 }
 
@@ -67,6 +80,14 @@ function getGeoYValues(xValues,yFunc){
     return yList;
 }
 
+function getYValues(xValues,yFunc){
+    let yList = [];
+    for (let i=1; i<xValues.length; i++){
+        yList.push(yFunc(xValues[i]));
+    }
+    return yList;
+}
+
 function removeCanvas(){
     let chart = getChart();
     chart.remove();
@@ -79,22 +100,15 @@ function createCanvas(){
     return undefined;
 }
 
-async function plotGeometric(theta){
-    removeCanvas();
-    createCanvas();
-    if (theta === ''){return undefined;}
-    console.log(theta,'A');
-    X = genXRange(0,100,1);
-    f = fGeoAdStock(theta);
-    Y = getGeoYValues(X,f);
-    let config = {
+function getConfig(XData,YData,varName,adStock){
+    return {
         'type':'line',
         'data': {
-            'labels':X,
+            'labels':XData,
             'datasets': [
                 {
-                    'label':'AdStock Geometrico',
-                    'data':Y,
+                    'label':adStock +' '+varName,
+                    'data':YData,
                     'backgroundColor': 'rgba(153, 0, 153, 0.2)', // Color de fondo
                     'borderColor': 'rgba(204, 0, 204, 1)', // Color de borde
                     'borderWidth': 1 // Ancho del borde
@@ -102,7 +116,35 @@ async function plotGeometric(theta){
             ]
         },
     }
-    let ctx = getChart().getContext('2d')
+}
+
+
+async function plotGeometric(theta,varName){
+    removeCanvas();
+    createCanvas();
+    if (theta === ''){return undefined;}
+    X = genXRange(0,10,0.1);
+    f = fGeoAdStock(theta);
+    Y = getYValues(X,f);
+    let config = getConfig(X,Y,varName,'geometric');
+    let ctx = getChart().getContext('2d');
+    new Chart(
+        ctx,
+        config
+    );
+    
+    return undefined;
+}
+
+async function plotWeibull(shape,scale,type,varName){
+    removeCanvas();
+    createCanvas();
+    if (shape === '' || scale === '' || type===''){return undefined;}
+    X = genXRange(0,2,0.01);
+    f = fWeibullAdStock(shape,scale,type);
+    Y = getYValues(X,f);
+    let config = getConfig(X,Y,varName,'weibull_'+type);
+    let ctx = getChart().getContext('2d');
     new Chart(
         ctx,
         config
